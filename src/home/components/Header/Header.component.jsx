@@ -2,15 +2,9 @@ import React from "react";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
-import Badge from "react-bootstrap/Badge";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {connect} from 'react-redux'
+import ShoppingCart from "../ShoppingCart";
 
-const Header = ({shoppingcart}) => {
+const Header = () => {
   return (
     <Navbar bg="primary" variant="dark">
       <Navbar.Brand href="#home">REACT APP</Navbar.Brand>
@@ -19,23 +13,8 @@ const Header = ({shoppingcart}) => {
         <Nav.Link href="#features">Features</Nav.Link>
         <Nav.Link href="#pricing">Pricing</Nav.Link>
       </Nav>
-      <Button>
-        <FontAwesomeIcon icon={faShoppingCart} />{" "}
-        <Badge variant="light">{shoppingcart.length}</Badge>
-        <span className="sr-only">cart</span>
-      </Button>
-      {/* <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-light">Search</Button>
-      </Form> */}
+      <ShoppingCart />
     </Navbar>
   );
 };
-// Map Redux state to React component props
-const mapStateToProps = (state) => ({
-  shoppingcart: state.products.shoppingcart,
-})
-
-// Connect Redux to React
-export default connect(mapStateToProps)(Header)
-// export default Header;
+export default Header;
