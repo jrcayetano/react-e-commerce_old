@@ -9,9 +9,7 @@ const Product = ({ product }) => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log("Product mounted");
-  }, [product]);
+  useEffect(() => {}, [product]);
 
   /* const addItemToShoppingCart = (e, product) => {
     e.preventDefault();

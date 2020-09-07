@@ -29,7 +29,7 @@ const ProductsSection = ({ showShoppingList }) => {
           <Product product={product} key={`P_${index}`} />
         ))}
       </div>
-      {showShoppingList && <div class="shoppinglist active">aaaa</div>}
+      {showShoppingList && <div className="shoppinglist active">aaaa</div>}
     </div>
   );
 };
