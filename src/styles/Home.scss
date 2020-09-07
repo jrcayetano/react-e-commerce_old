@@ -5,6 +5,7 @@
   grid-template-columns: 15% 1fr;
   grid-template-rows: auto;
   grid-template-areas: "sidenav content";
+  align-items: stretch;
 }
 
 .sidenav {

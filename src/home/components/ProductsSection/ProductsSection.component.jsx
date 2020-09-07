@@ -1,47 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Product from "../Product/Product.component";
-
-const products = [
-  {
-    name: "",
-    description: "",
-    image: "https://picsum.photos/200/300?random=1",
-    price: "",
-  },
-  {
-    name: "",
-    description: "",
-    image: "https://picsum.photos/200/300?random=2",
-    price: "",
-  },
-  {
-    name: "",
-    description: "",
-    image: "https://picsum.photos/200/300?random=3",
-    price: "",
-  },
-  {
-    name: "",
-    description: "",
-    image: "https://picsum.photos/200/300?random=4",
-    price: "",
-  },
-  {
-    name: "",
-    description: "https://picsum.photos/200/300?random=5",
-    image: "",
-    price: "",
-  },
-  {
-    name: "",
-    description: "https://picsum.photos/200/300?random=6",
-    image: "",
-    price: "",
-  },
-];
+import http from "axios";
 
 const ProductsSection = () => {
+  const [products, setProducts] = useState([]);
   useEffect(() => {
+    http
+      .get("http://localhost:3001/products")
+      .then((response) => setProducts([...response.data]));
     console.log("ProductsSection mounted");
   }, []);
   return (
