@@ -3,6 +3,7 @@ import Product from "../Product/Product.component";
 import http from "axios";
 import { connect, useDispatch } from "react-redux";
 import classNames from "classnames";
+import ShowShoppingList from "./../ShoppingList";
 
 const ProductsSection = ({ showShoppingList }) => {
   const [products, setProducts] = useState([]);
@@ -29,7 +30,7 @@ const ProductsSection = ({ showShoppingList }) => {
           <Product product={product} key={`P_${index}`} />
         ))}
       </div>
-      {showShoppingList && <div className="shoppinglist active">aaaa</div>}
+      {showShoppingList && <ShowShoppingList />}
     </div>
   );
 };

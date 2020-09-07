@@ -1,0 +1,21 @@
+.product-preview {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 0;
+  &.active-hover {
+  }
+}
+.product-preview__image {
+  width: 60px;
+}
+
+.product-preview__product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-preview__product-info__price {
+  color: red;
+  font-weight: bold;
+}

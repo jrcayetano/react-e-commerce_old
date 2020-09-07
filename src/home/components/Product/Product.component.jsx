@@ -2,19 +2,30 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductShoppingCart } from "./../../../state/actions/shoppingActionTypes";
+import {
+  addProductShoppingCart,
+  incrementProductShoppingCart,
+} from "./../../../state/actions/shoppingActionTypes";
 
 const Product = ({ product }) => {
-  console.log("product", product);
-
+  const productFoundInList = useSelector((state) =>
+    state.products.shoppingcart.find((p) => p.id === product.id)
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {}, [product]);
 
-  /* const addItemToShoppingCart = (e, product) => {
-    e.preventDefault();
-    dispatch(addProductShoppingCart(product));
-  } */
+  const addItemToShoppingCart = () => {
+    console.log("aaaa", productFoundInList);
+    !productFoundInList
+      ? dispatch(addProductShoppingCart({ ...product, quantity: 1 }))
+      : dispatch(incrementProductShoppingCart(product.id));
+    /*   console.log('aaa',productFoundInList )
+    if (!productFoundInList) {
+      dispatch(addProductShoppingCart(product));
+    }
+    dispatch(incrementProductShoppingCart(product)); */
+  };
 
   return (
     <div className="product">
@@ -23,10 +34,7 @@ const Product = ({ product }) => {
         <Card.Body>
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>{product.description}</Card.Text>
-          <Button
-            variant="primary"
-            onClick={(e) => dispatch(addProductShoppingCart(product))}
-          >
+          <Button variant="primary" onClick={addItemToShoppingCart}>
             Buy
           </Button>
         </Card.Body>
