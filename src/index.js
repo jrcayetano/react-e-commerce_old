@@ -4,10 +4,23 @@ import "./index.scss";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
+import {configureStore} from '@reduxjs/toolkit'
+import {Provider} from 'react-redux'
+// import rootReducer from './slices'
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
+import {composeWithDevTools} from 'redux-devtools-extension'
+import rootReducer from './state/reducers'
+
+// create store
+//const store = configureStore({reducer: rootReducer})
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

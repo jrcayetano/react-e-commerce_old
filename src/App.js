@@ -5,9 +5,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./login";
 import Home from "./home";
 
-import { combineReducers, createStore } from "redux";
-const reducer = combineReducers({ visibilityFilter, todos });
-const store = createStore(reducer);
  // aaa
 const App = () => {
   return (

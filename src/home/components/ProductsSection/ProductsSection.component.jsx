@@ -12,12 +12,13 @@ const ProductsSection = () => {
   }, []);
   return (
     <div className="productSection">
-      <h1>Product section</h1>
+      
       <div className="product-list">
         {products.map((product, index) => (
           <Product product={product} key={`P_${index}`} />
         ))}
       </div>
+      <div class="shoppinglist">aaaa</div>
     </div>
   );
 };

@@ -10,4 +10,24 @@
   grid-row-gap: 1px;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
+  &.active-shopping-list {
+    width: 80%;
+  }
+}
+
+.productSection{
+  &.active-shopping-list {
+    display:grid;
+    grid-template-columns: 85% 15% ;
+  }
+  
+}
+
+.shoppinglist {
+  height: 100%;
+  border-left: 1px solid gray;
+  display: none;
+  &.active {
+    display: block 
+  }
 }

@@ -8,8 +8,9 @@ import Button from "react-bootstrap/Button";
 import Badge from "react-bootstrap/Badge";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {connect} from 'react-redux'
 
-const Header = () => {
+const Header = ({shoppingcart}) => {
   return (
     <Navbar bg="primary" variant="dark">
       <Navbar.Brand href="#home">REACT APP</Navbar.Brand>
@@ -20,7 +21,7 @@ const Header = () => {
       </Nav>
       <Button>
         <FontAwesomeIcon icon={faShoppingCart} />{" "}
-        <Badge variant="light">9</Badge>
+        <Badge variant="light">{shoppingcart.length}</Badge>
         <span className="sr-only">cart</span>
       </Button>
       {/* <Form inline>
@@ -30,4 +31,11 @@ const Header = () => {
     </Navbar>
   );
 };
-export default Header;
+// Map Redux state to React component props
+const mapStateToProps = (state) => ({
+  shoppingcart: state.products.shoppingcart,
+})
+
+// Connect Redux to React
+export default connect(mapStateToProps)(Header)
+// export default Header;
