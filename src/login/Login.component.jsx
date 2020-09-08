@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
+import { HOME_PATH } from "../const/Path.const";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../state/actions/userLogged.actions";
 
 const Login = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let history = useHistory();
+  const dispath = useDispatch();
 
-  function loginAction(event) {
+  const loginAction = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity === false) {
       event.preventDefault();
@@ -18,11 +22,10 @@ const Login = () => {
     event.preventDefault();
     event.stopPropagation();
     setValidated(true);
-    console.log(email);
-    console.log(password);
-    console.log("go to home", event);
-    history.push("/home");
-  }
+    dispath(userLogin());
+
+    history.push(`${HOME_PATH}`);
+  };
 
   return (
     <div className="container">

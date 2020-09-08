@@ -11,6 +11,7 @@ const ProductPreview = ({ product }) => {
   const deleteProduct = () => {
     dispatch(deleteProductShoppingCart(product.id));
   };
+
   return (
     <Fragment>
       <div
@@ -28,6 +29,9 @@ const ProductPreview = ({ product }) => {
           </span>
           <span className="product-preview__product-info__price">
             EUR {product.price}
+          </span>
+          <span className="product-preview__product-info__quantity">
+            Uds {product.quantity}
           </span>
         </div>
       </div>

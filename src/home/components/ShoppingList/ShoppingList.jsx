@@ -7,7 +7,7 @@ const ShoppingList = ({ shoppingcart }) => {
   const [total, setTotal] = useState(0);
   useEffect(() => {
     const total = shoppingcart
-      .map((product) => product.price)
+      .map((product) => product.price * product.quantity)
       .reduce((product1, product2) => product1 + product2, 0);
     setTotal(total);
   }, [shoppingcart]);

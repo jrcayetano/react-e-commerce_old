@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Header from "./components/Header";
 import ProductsSection from "./components/ProductsSection";
 import { BrowserRouter, Route } from "react-router-dom";
+import { PRODUCTS_PATH, LOGIN_PATH } from "../const/Path.const";
+import Login from "./../login";
 
 const Home = () => {
   return (
@@ -12,7 +14,8 @@ const Home = () => {
       <div className="homeContainer">
         <Sidenav />
         <div className="main-content-wrapper">
-          <Route path="/home/products" component={ProductsSection} />
+          <Route path={`/${LOGIN_PATH}`} component={Login} />
+          <Route path={`/${PRODUCTS_PATH}`} component={ProductsSection} />
         </div>
       </div>
     </Container>

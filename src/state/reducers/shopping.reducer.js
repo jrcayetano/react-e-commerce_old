@@ -32,11 +32,12 @@ export default function shoppingProductReducer(state = initialState, action) {
     case INCREMENT_PRODUCT_SHOPPINGCART:
       return {
         ...state,
-        shoppingcart: state.shoppingcart.map((product) =>
-          product.id === action.payload
-            ? { ...product, quantity: product.quantity++ }
-            : { ...product }
-        ),
+        shoppingcart: state.shoppingcart.map((product) => {
+          console.log("p", product, action.payload);
+          return product.id === action.payload
+            ? { ...product, quantity: product.quantity + 1 }
+            : { ...product };
+        }),
       };
     default:
       return state;

@@ -9,7 +9,7 @@ const ProductsSection = ({ showShoppingList }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     http
-      .get("http://localhost:3001/products")
+      .get("http://localhost:3003/products")
       .then((response) => setProducts([...response.data]));
     console.log("ProductsSection mounted");
   }, []);

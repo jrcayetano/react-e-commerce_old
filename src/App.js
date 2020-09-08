@@ -4,13 +4,14 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import Login from "./login";
 import Home from "./home";
+import { HOME_PATH } from "./const/Path.const";
 
- // aaa
+// aaa
 const App = () => {
   return (
     <BrowserRouter>
-      <Route path="/home" component={Home} />
-      <Route path="/login" component={Login} />
+      <Route path={HOME_PATH} component={Home} />
+      {/* <Route path="/login" component={Login} /> */}
     </BrowserRouter>
   );
 };

@@ -29,10 +29,7 @@ const Sidenav = () => {
             key={`${element.name}_${index}`}
             to={element.value}
           >
-            <Link
-              className="sidenav-list-item-link"
-              to={`/home/${element.value}`}
-            >
+            <Link className="sidenav-list-item-link" to={`/${element.value}`}>
               {element.label}
             </Link>
           </li>
