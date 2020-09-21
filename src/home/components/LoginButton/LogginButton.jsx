@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 const LoginButton = () => {
   return (
     <Button href="/login" variant="secondary">
-      Login
+      Login2
     </Button>
   );
 };
